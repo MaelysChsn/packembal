@@ -1,0 +1,295 @@
+
+:root {
+  --main-color: #ffffff;
+  --blue-color: #8CB8C1;
+  --brown-color: #BD9973;
+  --marine-color: #414F54;
+  --title-color : #465A61;
+}
+
+html{
+    width:100%;
+}
+
+body{
+    margin: 0;
+    padding:0;
+    font-size: 100%;
+    font-family: "Ubuntu-regular";
+    overflow-x:hidden;
+}
+
+p{
+  font-size: 0.875rem;
+}
+
+main{
+    margin: 0 1.4rem;
+    transition: 0.8s ease-in-out;
+}
+
+
+section{
+    width: 80%;
+    margin: auto;
+}
+
+.description{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+
+    margin: 3rem auto;
+}
+.description img{
+    width: 17rem;
+}
+.infos{
+    width: 17rem;
+    font-size: 0.8rem;
+    text-align: justify;
+}
+
+
+.grid{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    width: 100%;
+    margin: auto;
+}
+
+h2:nth-child(2){
+    align-items: baseline;
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.grid-produits{
+    width: 25em;
+
+    border-radius: 0.8rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1rem;
+    background-color:#ffffff;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.10);
+}
+
+.grid-produits figure{
+    width: 100%;
+    margin: 0;
+    object-fit: contain;
+}
+figure img {
+    width: 100%;
+    object-fit: contain;
+        border-radius: 0.8rem 0.8rem 0 0;
+}
+.grid-produits h2{
+    text-align: center;
+    font-size: 1rem;
+    padding: 1rem 2rem;
+    color: var(--marine-color);
+}
+
+@media screen and (min-width : 768px){
+    .description{
+        flex-direction: row;
+    }
+    .description img{
+        width: 20rem;
+    }
+    .infos{
+        width: 20rem;
+        text-align: justify;
+    }
+    .infos p{
+        font-size: 0.8rem;
+    }
+
+    .grid{
+        flex-flow: row wrap;
+        width: 80%;
+    }
+
+    .grid-produits{
+        width: 15rem;
+    }
+
+}
+
+@media screen and (min-width : 1050px){
+  main{
+      margin: 2rem 8rem!important;
+  }
+}
+
+@media screen and (min-width : 1300px){
+
+}
+
+
+
+
+/* Popup */
+
+*, *::after, *::before{
+    box-sizing: border-box;
+}
+
+.popup{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background-color: #ffffff;
+    border-radius: 0.8rem;
+    z-index: 10;
+    width: 19.81rem;
+    max-width: 82.75rem;
+    padding: 1rem;
+    transition: 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.popup.active{
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.popup figure{
+    width: 80%;
+    margin: auto;
+    object-fit: contain;
+}
+.popup img {
+    width: 100%;
+    object-fit: contain;
+        border-radius: 0;
+}
+
+.popup h3{
+    font-weight: lighter;
+    text-align: center;
+    font-family: "Ubuntu-light";
+    color: var(--marine-color);
+    font-size: 1rem;
+}
+
+.popup h2{
+    text-align: center;
+    color: var(--marine-color);
+    font-size: 1rem;
+    font-weight: normal;
+    font-family: "Ubuntu-medium";
+}
+.popup h4{
+    background-color: #EAF3F5;
+    font-family: "Ubuntu-medium";
+    border-radius: 0.5rem;
+    color: #ffffff;
+    height: 2.3rem;
+    display: flex;
+    justify-content: space-between;
+}
+.popup span{
+    background-color: var(--blue-color);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-family: "Ubuntu-medium";
+    font-weight: lighter;
+    font-size: 0.9rem;
+    color: #ffffff;
+}
+.popup #files{
+    background-color: var(--marine-color);
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-family: "Ubuntu-medium";
+    color: #ffffff;
+    font-size: 0.9rem;
+    align-self: center;
+}
+
+.popup .close-button{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 2rem;
+    font-weight: normal;
+    width: 2rem;
+    align-self: flex-end;
+}
+
+.open-button{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 2rem;
+    font-weight: bolder;
+    color: var(--blue-color);
+    background-color: var(--marine-color);
+    border-radius: 2rem;
+    width: 2rem;
+    height: 2rem;
+    align-self: flex-end;
+}
+
+
+
+#overlay-popup{
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 4;
+    pointer-events: none;
+    transition: 0.2s ease-in-out;
+}
+
+#overlay-popup.active{
+    opacity: 1;
+    pointer-events: all;
+}
+
+@media screen and (min-width : 768px){
+    .popup{
+        width: 45.81rem;
+        flex-direction: row;
+        padding: 3rem 2rem;
+    }
+    .popup figure{
+        width: 40%;
+        margin: 0 3rem 0 1rem;
+    }
+
+    .popup h4{
+        height: 2rem;
+    }
+    .popup .close-button{
+        align-self: baseline;
+    }
+
+}
+
+@media screen and (min-width : 1050px){
+  main{
+      margin: 2rem 8rem!important;
+  }
+}
+
+@media screen and (min-width : 1300px){
+
+}
